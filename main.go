@@ -2,8 +2,13 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 	// var card string = "Ace of Spades" // only strings are legit!
 	card := "Ace of Spades"
 	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+
 }
