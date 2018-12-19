@@ -1,3 +1,5 @@
+// Go is not Object Oriented, no "Deck Class" with defined classes that have certain methods and properties
+// instead, we create a new type, similar to strings, ints, slices, and arrays
 package main
 
 import "fmt"
