@@ -1,6 +1,13 @@
-// Go is not Object Oriented, no "Deck Class" with defined classes that have certain methods and properties
-// but this is vaugely like the OO approach, we create a new type, similar to strings, ints, slices, and arrays
-// execute go run main.go deck.go
+// accessing slices:
+
+// slices are indexed from 0
+// acessing a slice like so slice[0]
+// selecting a range of items in a slice: `slice[index1:index2]`
+//  - index1 is inclusive, index2 is exclusive
+
+// `slice[:index2]` items up to and excluding index2
+// `slice[index2:]` items begining at and including index2, to the end 
+
 package main
 
 func main() {
