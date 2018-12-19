@@ -15,3 +15,30 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+// no receiver, because caller presumably doesnt have a deck yet
+func newDeck() deck {
+	cards := deck{}
+	cardSuits := []string{"Spades", "Hearts", "Clubs", "Diamonds"}
+	cardValues := []string{
+		"Ace",
+		"Two",
+		"Three",
+		"Four",
+		"Five",
+		"Six",
+		"Seven",
+		"Eight",
+		"Nine",
+		"Ten",
+		"Jack",
+		"Queen",
+		"King",
+	}
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+	return cards
+}
