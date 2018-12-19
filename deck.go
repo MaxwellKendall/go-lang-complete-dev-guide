@@ -16,7 +16,7 @@ func (d deck) print() {
 	}
 }
 
-// no receiver, because caller presumably doesnt have a deck yet
+// no receiver, because caller presumably doesn't have a deck yet
 func newDeck() deck {
 	cards := deck{}
 	cardSuits := []string{"Spades", "Hearts", "Clubs", "Diamonds"}
@@ -41,4 +41,8 @@ func newDeck() deck {
 		}
 	}
 	return cards
+}
+// returning multiple values!
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }
