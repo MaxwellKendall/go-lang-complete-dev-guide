@@ -69,4 +69,7 @@ func newDeckFromFile(filename string) (deck, error) {
 		os.Exit(1)
 		return deck{}, err
 	}
+	
+	s := strings.Split(string(byteSlice), ",")
+	return deck(s), nil
 }
