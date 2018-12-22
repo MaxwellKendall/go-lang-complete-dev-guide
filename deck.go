@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil" // ioutil is a subpackage of io pkg!
 	"strings"
 	"fmt"
 )
@@ -50,4 +51,9 @@ func deal(d deck, handSize int) (deck, deck) {
 // coercing deck to string
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+func (d deck) saveToFile(filename string) error {
+	bytes := []byte(d.toString())
+	return ioutil.WriteFile(filename, bytes, 0666) //anyone can read/write this file
 }
