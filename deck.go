@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"io/ioutil" // ioutil is a subpackage of io pkg!
 	"strings"
 	"fmt"
@@ -56,4 +57,16 @@ func (d deck) toString() string {
 func (d deck) saveToFile(filename string) error {
 	bytes := []byte(d.toString())
 	return ioutil.WriteFile(filename, bytes, 0666) //anyone can read/write this file
+}
+
+func newDeckFromFile(filename string) (deck, error) {
+	byteSlice, err := ioutil.ReadFile(filename)
+	if err != nil {
+		// Error Handling Options:
+			// #1. Log error, return new deck via call to newDeck()
+			// #2. Log error, entirely quit the program
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+		return deck{}, err
+	}
 }
