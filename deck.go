@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+	"math/rand"
 	"os"
 	"io/ioutil" // ioutil is a subpackage of io pkg!
 	"strings"
@@ -72,4 +74,15 @@ func newDeckFromFile(filename string) (deck, error) {
 	
 	s := strings.Split(string(byteSlice), ",")
 	return deck(s), nil
+}
+
+// loop through one time, generate random number, set current index to be random
+func (d deck) shuffle() {
+	intSixtyFo := time.Now().UnixNano()
+	source := rand.NewSource(intSixtyFo)
+	r := rand.New(source)
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1)
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }
