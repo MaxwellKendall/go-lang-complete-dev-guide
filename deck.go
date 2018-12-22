@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"fmt"
 )
 
@@ -44,4 +45,9 @@ func newDeck() deck {
 // returning multiple values!
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+// coercing deck to string
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
 }
