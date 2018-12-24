@@ -18,14 +18,19 @@ type person struct {
 
 func main() {
 	max := person{
-		firstName: "Max",
+		firstName: "Maxwell",
 		lastName: "Kendall",
 		contactInfo: contactInfo{
 			email:"checkyoself@checkyoself.com",
 			zipcode: 22015,
 		},
 	}
+	max.updateName("Max")
 	max.print()
+}
+
+func (p person) updateName(newName string) {
+	p.firstName = newName
 }
 
 func (p person) print() {
