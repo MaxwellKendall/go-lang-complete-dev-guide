@@ -25,6 +25,7 @@ func main() {
 			zipcode: 22015,
 		},
 	}
+	// demonstrates that GO is pass by value, not pass by reference!
 	max.updateName("Max")
 	max.print()
 }
