@@ -12,8 +12,7 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName string
-	contactInfo // does the same thing
-	// contact contactInfo
+	contactInfo
 }
 
 func main() {
@@ -25,13 +24,14 @@ func main() {
 			zipcode: 22015,
 		},
 	}
-	// demonstrates that GO is pass by value, not pass by reference!
-	max.updateName("Max")
+
+	pointerToMax := &max
+	pointerToMax.updateName("Maxie Boy")
 	max.print()
 }
 
-func (p person) updateName(newName string) {
-	p.firstName = newName
+func (pointerToPerson *person) updateName(newName string) {
+	(*pointerToPerson).firstName = newName
 }
 
 func (p person) print() {
