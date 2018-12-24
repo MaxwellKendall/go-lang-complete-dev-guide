@@ -12,14 +12,15 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName string
-	contact contactInfo
+	contactInfo // does the same thing
+	// contact contactInfo
 }
 
 func main() {
 	max := person{
 		firstName: "Max",
 		lastName: "Kendall",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email:"checkyoself@checkyoself.com",
 			zipcode: 22015,
 		},
