@@ -46,7 +46,10 @@ func newDeck() deck {
 	}
 	return cards
 }
-// returning multiple values!
+/*
+	If this function had a receiver, you would expect the underlying deck to be modified
+	As it is now, we are not doing any modification whatsoever
+*/
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
