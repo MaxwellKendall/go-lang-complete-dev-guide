@@ -25,5 +25,9 @@ func main() {
 			zipcode: 22015,
 		},
 	}
-	fmt.Printf("%+v", max)
+	max.print()
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)	
 }
