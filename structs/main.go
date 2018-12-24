@@ -4,23 +4,25 @@ import (
 	"fmt"
 )
 
-// different ways to declare a struct
+type contactInfo struct {
+	email string
+	zipcode int
+}
 
 type person struct {
 	firstName string
 	lastName string
+	contact contactInfo
 }
 
 func main() {
-	// relying on the order of definition
-	max := person{"Max", "Kendall"}
-	// explicitly specifying the properties and giving them values
-	claire := person{firstName: "Claire", lastName: "Kendall"}
-	// init empty struct with 0 values
-	var ross person
-	// updating new person using . syntax
-	claire.lastName = "SQRL"
-
-	fmt.Println(max, claire, ross)
-	fmt.Printf("%+v", ross) // shows all the fields!
+	max := person{
+		firstName: "Max",
+		lastName: "Kendall",
+		contact: contactInfo{
+			email:"checkyoself@checkyoself.com",
+			zipcode: 22015,
+		},
+	}
+	fmt.Printf("%+v", max)
 }
