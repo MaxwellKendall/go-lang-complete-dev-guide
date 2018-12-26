@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-	var colors map[string]string
+	colors := make(map[string]string)
+	// var colors map[string]string
 	// colors := map[string]string{
 	// 	"red": "#ff000",
 	// 	"green": "#745",
