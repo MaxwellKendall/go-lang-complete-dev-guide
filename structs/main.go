@@ -25,8 +25,10 @@ func main() {
 		},
 	}
 
-	pointerToMax := &max
-	pointerToMax.updateName("Maxie Boy")
+	// It is a pain to explicitly convert to a pointer, go is fine with just passing this implictly
+	// pointerToMax := &max
+	// pointerToMax.updateName("Maxie Boy")
+	max.updateName("Maxie Boy")
 	max.print()
 }
 
