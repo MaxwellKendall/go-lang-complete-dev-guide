@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"os"
 	"fmt"
 	"net/http"
@@ -12,9 +13,8 @@ func main() {
 		fmt.Println("Error: ", err)
 		os.Exit(1)
 	}
-	
-	byteSlice := make([]byte, 99999)
-	resp.Body.Read(byteSlice)
-
-	fmt.Println(string(byteSlice))
+	// io.Copy accepts 2 params: (1) implements Writer if, (2) Implements Reader if
+	// os.Stdout is of type file, which implements Writer, which therefore satisfies (1)
+	// resp.Body implements the Read() fn which satisfies (2)
+	io.Copy(os.Stdout, resp.Body)
 }
