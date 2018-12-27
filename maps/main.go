@@ -5,17 +5,17 @@ import (
 )
 
 func main() {
-	colors := make(map[string]string)
+	colors := map[string]string{
+		"red": "#ff000",
+		"green": "#745",
+		"white": "#fff",
+	}
 
-	// var colors map[string]string
-	// colors := map[string]string{
-	// 	"red": "#ff000",
-	// 	"green": "#745",
-	// }
+	printMap(colors)
+}
 
-	colors["white"] = "#ffff"
-	// dot syntax (colors.white = "XYZ") does not work because key has to be of a certain type
-	delete(colors, "white")
-
-	fmt.Println(colors)
+func printMap(c map[string]string) {
+	for color, hex := range c {
+		fmt.Println("hex code for color", color, "is", hex)
+	}
 }
