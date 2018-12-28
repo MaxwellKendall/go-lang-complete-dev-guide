@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	// this is the main go routine
 	links := []string{
 		"http://facebook.com",
 		"http://google.com",
@@ -15,11 +16,13 @@ func main() {
 	}
 
 	for _, link := range links {
-		checkLink(link)
+		// go creates a new routine
+		go checkLink(link)
 	}
 }
 
 func checkLink(website string) {
+	// this is a blocking call
 	_, err := http.Get(website)
 	if err != nil {
 		fmt.Println("Error:", website, "might be down")
