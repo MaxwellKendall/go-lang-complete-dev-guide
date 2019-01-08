@@ -23,13 +23,9 @@ func main() {
 		// go creates a new routine
 		go checkLink(link, c)
 	}
-
-	fmt.Println(<- c) // receive the value in the channel and print it
-	fmt.Println(<- c)
-	fmt.Println(<- c)
-	fmt.Println(<- c)
-	fmt.Println(<- c)
-	fmt.Println(<- c)
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<- c) // routine stops until value is received in the channel
+	}
 }
 
 func checkLink(website string, c chan string) {
