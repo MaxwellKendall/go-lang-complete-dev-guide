@@ -25,6 +25,11 @@ func main() {
 	}
 
 	fmt.Println(<- c) // receive the value in the channel and print it
+	fmt.Println(<- c)
+	fmt.Println(<- c)
+	fmt.Println(<- c)
+	fmt.Println(<- c)
+	fmt.Println(<- c)
 }
 
 func checkLink(website string, c chan string) {
