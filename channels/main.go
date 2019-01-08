@@ -25,8 +25,11 @@ func main() {
 		go checkLink(link, c)
 	}
 	for l := range c {
-		time.Sleep(5 * time.Second) // this blocks the main routine from starting new routines
-		go checkLink(l, c)
+		go func(){
+			time.Sleep(5 * time.Second)
+			// interesting warning... loop variable l captured by func literal
+			checkLink(l, c)
+		}()
 	}
 }
 
@@ -39,6 +42,5 @@ func checkLink(website string, c chan string) {
 		return
 	}
 	fmt.Println(website, "is good!")
-	
 	c <- website
 }
