@@ -23,9 +23,9 @@ func main() {
 		// go creates a new routine
 		go checkLink(link, c)
 	}
-	for {
-		// once we get a message, start another routine
-		go checkLink(<- c, c)
+	for l := range c {
+		// when this channel gets a value, assign it to l and execute for loop body
+		go checkLink(l, c)
 	}
 }
 
