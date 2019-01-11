@@ -25,11 +25,10 @@ func main() {
 		go checkLink(link, c)
 	}
 	for l := range c {
-		go func(){
+		go func(link string){
 			time.Sleep(5 * time.Second)
-			// interesting warning... loop variable l captured by func literal
-			checkLink(l, c)
-		}()
+			checkLink(link, c)
+		}(l)
 	}
 }
 
